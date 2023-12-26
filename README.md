@@ -45,7 +45,7 @@ sudo vi /usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base
 sudo yum install git -y && sudo git clone https://github.com/devops2023q2/webapp.git && cd webapp && sudo pip3 install -r requirements.txt
 gunicorn main.wsgi --bind 0.0.0.0:8000
 ```
-* Step 6: Testing
+* Step 5: Testing
 ```
 python3 csf_gateway.py --cluster_data cluster-templates/azure_dev_cluster.json --action deprovision
 ```
