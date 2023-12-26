@@ -3,7 +3,7 @@ This project is intended to provision infrastructure on Azure.
 # Pre-Requisites
 * Step 1: Download terraform utility
 ```
-https://www.terraform.io/downloads) -> unzip file -> terraform.exe
+https://www.terraform.io/downloads -> unzip file -> terraform.exe
 ```
 * Step 2: Edit the system environment variables
 ```
