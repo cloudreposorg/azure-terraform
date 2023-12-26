@@ -20,9 +20,9 @@ export ARM_TENANT_ID="" && export ARM_SUBSCRIPTION_ID="" && export ARM_CLIENT_ID
 # Execution Flow
 * Step 1: Clone repo
 ```
-git clone https://github.com/fullstack2025/CSF.git && cd CSF
+git clone https://github.com/cloudreposorg/azure-terraform.git && cd azure-terraform.git
 ```
-* Step 2: Modify variables in cluster-templates/azure_dev_cluster.json file
+* Step 2: Modify cluster config as per requirement in azure_dev_cluster.json file
 ```
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
@@ -30,7 +30,8 @@ cat ~/.ssh/id_rsa.pub
 * Step 3: Provision infra
 ```
 terraform init .
-python3 csf_gateway.py --cluster_data cluster-templates/azure_dev_cluster.json --action provision
+terraform validate --var-file=azure_dev_cluster.json
+terraform apply --var-file=azure_dev_cluster.json
 ```
 * Step 4: Post provision steps
 ```
@@ -47,5 +48,5 @@ gunicorn main.wsgi --bind 0.0.0.0:8000
 ```
 * Step 5: Testing
 ```
-python3 csf_gateway.py --cluster_data cluster-templates/azure_dev_cluster.json --action deprovision
+lb_ip:8000
 ```
