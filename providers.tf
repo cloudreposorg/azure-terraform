@@ -1,4 +1,4 @@
-# 1. Specify the version of the AzureRM Provider to use
+############### Specify the version of the AzureRM Provider to use ###############
 terraform {
   required_providers {
     azurerm = {
@@ -7,8 +7,7 @@ terraform {
     }
   }
 }
-
-# 2. Configure the AzureRM Provider
+############ Configure the AzureRM Provider ######################################
 provider "azurerm" {
   features {
      resource_group {
