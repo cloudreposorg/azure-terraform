@@ -51,3 +51,20 @@ gunicorn main.wsgi --bind 0.0.0.0:8000
 ```
 lb_ip:8000
 ```
+# Features
+* Step 1: Networking
+* ```
+Vnet, Subnets, Route Tables, Public Ips, Network Interface, NAT gateway, Load balaner, Bastions
+```
+* Step 2: Security
+```
+Managed identity, Network security group, Key Vault
+```
+* Step 3: Storage
+```
+Block storage: Data disk, Blob storage: Storage account
+```
+* Step 4: Compute
+```
+Virtual Machines
+```
