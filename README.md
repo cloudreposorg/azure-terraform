@@ -12,9 +12,11 @@ System variables -> click on Path -> enter terraform.exe file path -> New -> Ok
 * Step 3: Authentication to Azure
 ```
 Service principal creation=>Azure active directory => App registrations => New registration -> Name : mysp(any name we can give) -> Register -> Certificates & secrets -> Client secrets -> New client secret -> Add -> copy client secret value
-
+```
+```
 Assiging Permission for the above service princiap mysp to create resources in Azure => Subscription => IAM => Add -> add role assignment -> Role => Privileged administrator roles=> contributor -> members -> select members => select: <<mysp>> => click on Review + assign
-
+```
+```
 export ARM_TENANT_ID="" && export ARM_SUBSCRIPTION_ID="" && export ARM_CLIENT_ID="" && export ARM_CLIENT_SECRET=""
 ```
 # Execution Flow
@@ -29,8 +31,7 @@ cat ~/.ssh/id_rsa.pub
 ```
 * Step 3: Provision infra
 ```
-terraform init .
-terraform validate --var-file=azure_dev_cluster.json
+terraform init 
 terraform apply --var-file=azure_dev_cluster.json
 ```
 * Step 4: Post provision steps
