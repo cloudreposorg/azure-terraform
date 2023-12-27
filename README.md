@@ -53,7 +53,7 @@ lb_ip:8000
 ```
 # Features
 * Step 1: Networking
-* ```
+```
 Vnet, Subnets, Route Tables, Public Ips, Network Interface, NAT gateway, Load balaner, Bastions
 ```
 * Step 2: Security
