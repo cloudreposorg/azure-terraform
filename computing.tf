@@ -3,6 +3,7 @@ resource "azurerm_linux_virtual_machine" "webapp_server_1" {
   name                  = "webapp-server-1"
   location              = azurerm_resource_group.Dev_RG.location
   resource_group_name   = azurerm_resource_group.Dev_RG.name
+  availability_set_id  = azurerm_availability_set.webapp_aset.id
   network_interface_ids = [azurerm_network_interface.webapp_server_1_nic.id]
   size                = "Standard_F2"
   admin_username      = "azure-user"
@@ -38,6 +39,7 @@ resource "azurerm_linux_virtual_machine" "webapp_server_2" {
   name                  = "webapp-server-2"
   location              = azurerm_resource_group.Dev_RG.location
   resource_group_name   = azurerm_resource_group.Dev_RG.name
+  availability_set_id  = azurerm_availability_set.webapp_aset.id
   network_interface_ids = [azurerm_network_interface.webapp_server_2_nic.id]
   size                = "Standard_F2"
   admin_username      = "azure-user"
@@ -68,10 +70,16 @@ resource "azurerm_linux_virtual_machine" "webapp_server_2" {
     storage_account_type = "Standard_LRS"
   }
 }
-
-
-
-################### Azure Virtual Machines using Virtual Machine Scale Sets ###########
+########################## Availability Sets ######################
+resource "azurerm_availability_set" "webapp_aset" {
+  name                = "webapp-aset"
+  location              = azurerm_resource_group.Dev_RG.location
+  resource_group_name   = azurerm_resource_group.Dev_RG.name
+  tags = {
+    environment = "Development"
+  }
+}
+################### Azure Virtual Machines using Virtual Machine Scale Sets ########
 # resource "azurerm_virtual_machine_scale_set" "vmss" {
 #  name                = "vmscaleset"
 #  location              = azurerm_resource_group.Dev_RG.location
