@@ -14,8 +14,8 @@ resource "azurerm_virtual_machine_data_disk_attachment" "vm_ddisk1" {
   caching            = "ReadWrite"
 }
 ################### Blob storage #######################3
-resource "azurerm_storage_account" "storageaccount" {
-  name                = "storageaccount2023q2"
+resource "azurerm_storage_account" "storage_account" {
+  name                = "csportalstorageaccount"
   location            = azurerm_resource_group.Dev_RG.location
   resource_group_name = azurerm_resource_group.Dev_RG.name
   account_tier             = "Standard"
@@ -31,6 +31,6 @@ resource "azurerm_storage_account" "storageaccount" {
 }
 resource "azurerm_storage_container" "tfstatecontainer" {
   name                  = "tfstatecontainer"
-  storage_account_name  = azurerm_storage_account.storageaccount.name
+  storage_account_name  = azurerm_storage_account.storage_account.name
   container_access_type = "private"
 }
